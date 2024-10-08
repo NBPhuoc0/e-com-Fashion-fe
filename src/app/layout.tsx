@@ -4,6 +4,7 @@ import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 import Head from "next/head";
 import '@fortawesome/fontawesome-free/css/all.min.css'
+import StyledComponentsRegistry from "@/lib/antd.registry";
 // const geistSans = localFont({
 //   src: "../public/assets/fonts/GeistVF.woff",
 //   variable: "--font-geist-sans",
@@ -34,9 +35,11 @@ export default function RootLayout({
         />
       </Head>
       <body suppressHydrationWarning={true}>
-        <Header/>
-        {children}
-        <Footer/>
+        <StyledComponentsRegistry>
+          <Header />
+          {children}
+          <Footer />
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
