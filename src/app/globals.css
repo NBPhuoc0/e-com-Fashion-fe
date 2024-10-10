@@ -26,6 +26,7 @@
   max-width: 1460px;
   margin-left: auto;
   margin-right: auto;
+  padding: auto 20px;
 }
 
 body {
@@ -33,7 +34,6 @@ body {
   font-style: normal;
   display: flex;
   flex-direction: column;
-  padding: 0 20px;
 }
 
 @layer utilities {

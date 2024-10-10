@@ -15,28 +15,28 @@ export default function Home() {
         <BannerSlider banners={banners}/>
 
         <div className="w-full my-5">
-          <img src="/assets/images/banner_ads.webp" alt="banner" className="w-full h-full object-cover"/>
+          <img loading="lazy" src="/assets/images/banner_ads.webp" alt="banner" className="w-full h-full object-cover"/>
         </div>
 
         <Row gutter={16}>
             <Col span={12}>
               <div className="w-full mb-4">
-                <img src="/assets/images/banner_collection_1.webp" alt="collection banner" className="w-full h-full"/>
+                <img loading="lazy" src="/assets/images/banner_collection_1.webp" alt="collection banner" className="w-full h-full"/>
               </div>
             </Col>
             <Col span={12}>
               <div className="w-full mb-4">
-                <img src="/assets/images/banner_collection_2.webp" alt="collection banner" className="w-full h-full"/>
+                <img loading="lazy" src="/assets/images/banner_collection_2.webp" alt="collection banner" className="w-full h-full"/>
               </div>
             </Col>
             <Col span={12}>
               <div className="w-full mb-4">
-                <img src="/assets/images/banner_collection_3.webp" alt="collection banner" className="w-full h-full"/>
+                <img loading="lazy" src="/assets/images/banner_collection_3.webp" alt="collection banner" className="w-full h-full"/>
               </div>
             </Col>
             <Col span={12}>
               <div className="w-full mb-4">
-                <img src="/assets/images/banner_collection_4.webp" alt="collection banner" className="w-full h-full"/>
+                <img loading="lazy" src="/assets/images/banner_collection_4.webp" alt="collection banner" className="w-full h-full"/>
               </div>
             </Col>
         </Row>

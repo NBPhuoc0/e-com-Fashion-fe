@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 import Head from "next/head";
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 import '@fortawesome/fontawesome-free/css/all.min.css'
 // const geistSans = localFont({
 //   src: "../public/assets/fonts/GeistVF.woff",
@@ -35,7 +36,7 @@ export default function RootLayout({
       </Head>
       <body suppressHydrationWarning={true}>
         <Header/>
-        {children}
+        <AntdRegistry>{children}</AntdRegistry>
         <Footer/>
       </body>
     </html>
