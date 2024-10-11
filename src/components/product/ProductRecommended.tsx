@@ -93,7 +93,11 @@ export default function ProductRecommended() {
         href={"/collection/" + cateIDSelected}
         className="flex justify-center"
       >
-        <div className="text-center text-black hover:text-gray-500 font-medium rounded-lg p-2 min-w-96 w-96 border border-gray-600 hover:border-gray-500 mt-5 text-centers">
+        <div
+          className={`text-center text-black hover:text-gray-500 font-medium rounded-lg p-2 min-w-96 w-96 border border-gray-600 hover:border-gray-500 mt-5 text-centers ${
+            categorys[cateIDSelected].listProduct.length > 0 ? "" : "hidden"
+          }`}
+        >
           Xem thêm
         </div>
       </Link>
