@@ -37,13 +37,17 @@
     background-color: #fcaf17 !important;
 }
 
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: black !important;
+}
+
 
 .ant-tabs-ink-bar {
     display: none;
 }
 
 .ant-tabs-tab-btn {
-    color: black !important;
+    color: #949494 !important;
 }
 
 .ant-custom {

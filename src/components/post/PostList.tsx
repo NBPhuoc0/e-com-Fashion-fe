@@ -1,5 +1,5 @@
 import { Post } from "@/types/post";
-import PostCard from "./post-card";
+import PostCard from "./PostCard";
 import { Row, Col } from "antd";
 export default function PostList() {
     const posts: Post[] = [
