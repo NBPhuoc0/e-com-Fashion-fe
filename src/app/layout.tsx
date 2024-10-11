@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/header/header";
-import Footer from "@/components/footer/footer";
+import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
 import Head from "next/head";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import '@fortawesome/fontawesome-free/css/all.min.css'
