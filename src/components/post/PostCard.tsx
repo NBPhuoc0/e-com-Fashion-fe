@@ -1,4 +1,4 @@
-import { Post } from "@/models/post/post";
+import { Post } from "@/models/post/post.model";
 import Link from "next/link";
 
 export default function PostCard({ post }: { post: Post }) {

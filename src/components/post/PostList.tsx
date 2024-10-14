@@ -1,4 +1,4 @@
-import { Post } from "@/models/post/post";
+import { Post } from "@/models/post/post.model";
 import PostCard from "./PostCard";
 import { Row, Col } from "antd";
 export default function PostList() {
