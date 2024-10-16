@@ -1,5 +1,5 @@
 /* Tùy chỉnh màu nền của tab */
-.ant-tabs-tab {
+.tabSizeGuide .ant-tabs-tab {
     /* Màu nền tab */
     background-color: none;
     padding: 10px 30px !important;
@@ -9,22 +9,22 @@
     transition: all 0.3s ease;
 }
 
-.ant-tabs-nav::before {
+.tabSizeGuide .ant-tabs-nav::before {
     border-bottom: none !important
 }
 
-.ant-tabs-tab-active {
+.tabSizeGuide .ant-tabs-tab-active {
     /* font-weight: 600 !important; */
     background-color: none !important
 }
 
 
-.ant-tabs-ink-bar {
+.tabSizeGuide .ant-tabs-ink-bar {
     display: flex;
     background-color: black !important;
 }
 
-.ant-tabs-tab-btn {
+.tabSizeGuide .ant-tabs-tab-btn {
     color: black !important;
 }
 

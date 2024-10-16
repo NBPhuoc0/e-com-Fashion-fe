@@ -4531,7 +4531,7 @@ export default function Home() {
     <main>
       <div className='sectionContainer'>
         <BannerSlider banners={banners} />
-        <div className="mt-6">
+        <div className="mt-6 tabsHome">
           <h2 className="text-2xl md:text-3xl text-center py-2">Sản phẩm ưa chuộng</h2>
           <Tabs
             defaultActiveKey="1"

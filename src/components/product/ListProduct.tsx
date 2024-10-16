@@ -17,20 +17,21 @@ interface Categorys {
 
 const ListProduct = ({ listProduct }: { listProduct: Categorys[] }) => {
     return (
-        <div className='max-w-[1440px] px-5 mx-auto'>
-            {listProduct.length > 0 ?
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" >
-                    {
-                        listProduct.map((item) => (
-                            <ProductCard product={item} />
-                        ))
-                    }
-                </div>
-                : <span className='font-light'>-- Chưa có sản phẩm --</span>
+        <div>
+            <div className='sectionContainer'>
+                {listProduct.length > 0 ?
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" >
+                        {
+                            listProduct.map((item) => (
+                                <ProductCard product={item} />
+                            ))
+                        }
+                    </div>
+                    : <span className='font-light'>-- Chưa có sản phẩm --</span>
 
-            }
-        </div >
-
+                }
+            </div >
+        </div>
     )
 }
 

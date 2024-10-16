@@ -4,7 +4,6 @@ import BreadcrumbC from "@/components/Breadcrumb";
 import ProductSlider from "@/components/product/ProductSlider";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightArrowLeft, faShield, faStar, faStopwatch, faTags, faTruckFast } from '@fortawesome/free-solid-svg-icons';
-import FormatPrice from "@/utils/formatPrice";
 import CopyCodeButton from "@/components/CopyCodeButton";
 import { useState } from "react";
 import SizeGuide from "@/components/SizeGuide";
@@ -7146,189 +7145,190 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
     const [selectedColor, setSelectedColor] = useState<string>('-');
     const [countProduct, setCountProduct] = useState<number>();
     return (
-        <div className="max-w-[1440px] px-5 mx-auto">
-            <div className="p-2">
+        <div>
+            <div className="sectionContainer">
                 <BreadcrumbC items={breadcrumbItems} />
-            </div>
-            <div className="flex flex-col lg:grid grid-cols-24 gap-3 py-5">
-                <div className="col-span-1">
-                </div>
-                <div className="col-span-10">
-                    <div className="sticky top-[76px]">
-                        <ProductSlider product={product} />
+                <div className="flex flex-col lg:grid grid-cols-24 gap-3 py-5">
+                    <div className="col-span-1">
                     </div>
-                </div>
-                <div className="col-span-1">
-                </div>
-                <div className="col-span-11">
-                    {/* info product */}
-                    <div className="py-2">
-                        <h2 className="text-sm font-semibold">{product.name}</h2>
-                        <div className="py-2 flex items-center gap-1">
-                            <div className="mr-2">{params.id}</div>
-                            <div className="flex items-center h-4 w-4 text-amber-300">
-                                <FontAwesomeIcon icon={faStar} />
-                            </div>
-                            <div className="font-semibold text-sm">4.8</div>
-                            <div className="text-gray-400 text-sm">(120)</div>
-                            <div className="border-l-2 h-4"></div>
-                            <div className="flex gap-1 text-sm">
-                                <div className="font-thin">Đã bán</div>
-                                <div className="font-semibold">3328</div>
-                            </div>
-                        </div>
-                        <div className="font-semibold text-[#1c2430] text-2xl">{FormatPrice(597837)} đ</div>
-                    </div>
-                    {/* info discount */}
-                    <div className="py-2 flex items-center">
-                        <div className="text-center w-1/3 text-sm">Giảm 69K cho đơn hàng từ 499K</div>
-                        <div className="w-2/3 flex items-center">
-                            <span className="py-0.5 px-4 border text-xs text-red-600 my-0.5 mx-1.5 bg-zinc-100">69KT10</span>
-                            <CopyCodeButton code={'69KT10'} />
+                    <div className="col-span-10">
+                        <div className="sticky top-[76px]">
+                            <ProductSlider product={product} />
                         </div>
                     </div>
-                    {/* Color */}
-                    <div className="py-2">
-                        <div className="font-medium pb-2">
-                            Màu sắc:
-                            <span>  {selectedColor}</span>
-                        </div>
-                        <div className="flex gap-2">
-                            {product.colors.map((item) => (
-                                <div
-                                    className={`${selectedColor === item.color ? 'border border-slate-900 ' : ''} flex items-center justify-center rounded-full bg-[#ca8d3e] h-10 w-10 hover:border hover:border-slate-900 cursor-pointer`}
-                                    onClick={() => setSelectedColor(item.color)}
-                                >
-                                    <div
-                                        className={`${selectedColor === item.color ? 'border-2 border-slate-50 h-[38px] w-[38px]' : ''} rounded-full bg-yellow-200`}
-                                    >
-                                    </div>
-                                    {/* {item.color} */}
+                    <div className="col-span-1">
+                    </div>
+                    <div className="col-span-11">
+                        {/* info product */}
+                        <div className="py-2">
+                            <h2 className="text-sm font-semibold">{product.name}</h2>
+                            <div className="py-2 flex items-center gap-1">
+                                <div className="mr-2">{params.id}</div>
+                                <div className="flex items-center h-4 w-4 text-amber-300">
+                                    <FontAwesomeIcon icon={faStar} />
                                 </div>
-                            ))}
+                                <div className="font-semibold text-sm">4.8</div>
+                                <div className="text-gray-400 text-sm">(120)</div>
+                                <div className="border-l-2 h-4"></div>
+                                <div className="flex gap-1 text-sm">
+                                    <div className="font-thin">Đã bán</div>
+                                    <div className="font-semibold">3328</div>
+                                </div>
+                            </div>
+                            <div className="font-semibold text-[#1c2430] text-2xl">{product.min_variant_price.toLocaleString()} đ</div>
                         </div>
-                    </div>
-                    {/* Size */}
-                    <div className="py-2">
-                        <div className="flex justify-between">
+                        {/* info discount */}
+                        <div className="py-2 flex items-center">
+                            <div className="text-center w-1/3 text-sm">Giảm 69K cho đơn hàng từ 499K</div>
+                            <div className="w-2/3 flex items-center">
+                                <span className="py-0.5 px-4 border text-xs text-red-600 my-0.5 mx-1.5 bg-zinc-100">69KT10</span>
+                                <CopyCodeButton code={'69KT10'} />
+                            </div>
+                        </div>
+                        {/* Color */}
+                        <div className="py-2">
                             <div className="font-medium pb-2">
-                                Kích thước:
-                                <span> {selectedSize}</span>
+                                Màu sắc:
+                                <span>  {selectedColor}</span>
                             </div>
-                            <SizeGuide />
+                            <div className="flex gap-2">
+                                {product.colors.map((item) => (
+                                    <div
+                                        key={item.id}
+                                        className={`${selectedColor === item.color ? 'border border-slate-900 ' : ''} flex items-center justify-center rounded-full bg-[#ca8d3e] h-10 w-10 hover:border hover:border-slate-900 cursor-pointer`}
+                                        onClick={() => setSelectedColor(item.color)}
+                                    >
+                                        <div
+                                            className={`${selectedColor === item.color ? 'border-2 border-slate-50 h-[38px] w-[38px]' : ''} rounded-full bg-yellow-200`}
+                                        >
+                                        </div>
+                                        {/* {item.color} */}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        <div className="flex gap-2">
-                            {product.sizes.map((item, index) => (
-                                <div
-                                    key={index}
-                                    className={`${selectedSize === item.size ? 'bg-slate-900 text-gray-50' : ''} flex justify-center items-center rounded-lg h-10 w-10 border hover:border-slate-900 cursor-pointer`}
-                                    onClick={() => setSelectedSize(item.size)}
-                                >
-                                    {item.size}
+                        {/* Size */}
+                        <div className="py-2">
+                            <div className="flex justify-between">
+                                <div className="font-medium pb-2">
+                                    Kích thước:
+                                    <span> {selectedSize}</span>
                                 </div>
-                            ))}
-                        </div>
-                    </div>
-                    {/* Count */}
-                    <div className="py-3">
-                        <div className="font-medium pb-2">
-                            Số lượng:
-                        </div>
-                        <div className="flex gap-4 pb-4">
-                            <div className="w-1/4">
-                                <NumberSpinner setCount={setCountProduct} />
+                                <SizeGuide />
                             </div>
-                            <button className="w-3/4 border border-zinc-900 rounded-xl text-xl font-medium hover:bg-gray-100">
-                                Thêm vào giỏ hàng
-                            </button>
-                        </div>
-                        <button className="border w-full h-12 rounded-xl bg-[#FCAF17] hover:bg-[#fdc75d] shadow-2xl">Mua hàng</button>
-                    </div>
-                    <div className="py-2 bg-slate-50">
-                        <div className="p-4">
-                            <div className="flex justify-center space-x-3 mb-3">
-                                <Image
-                                    src={zaloPay}
-                                    alt="Picture of zalopay"
-                                    height={28} // Kích thước chiều cao
-                                />
-                                <Image
-                                    src={visa}
-                                    alt="Picture of visa"
-                                    height={28} // Kích thước chiều cao
-                                />
-                                <Image
-                                    src={masterCard}
-                                    alt="Picture of masterCard"
-                                    height={28} // Kích thước chiều cao
-                                />
-                                <Image
-                                    src={vnPay}
-                                    alt="Picture of vnPay"
-                                    height={28} // Kích thước chiều cao
-                                />
-                                <Image
-                                    src={momo}
-                                    alt="Picture of momo"
-                                    height={28} // Kích thước chiều cao
-                                />
-                            </div>
-                            <div className="text-xs text-center">
-                                Đảm bảo thanh toán an toàn và bảo mật
+                            <div className="flex gap-2">
+                                {product.sizes.map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className={`${selectedSize === item.size ? 'bg-slate-900 text-gray-50' : ''} flex justify-center items-center rounded-lg h-10 w-10 border hover:border-slate-900 cursor-pointer`}
+                                        onClick={() => setSelectedSize(item.size)}
+                                    >
+                                        {item.size}
+                                    </div>
+                                ))}
                             </div>
                         </div>
-                    </div>
+                        {/* Count */}
+                        <div className="py-3">
+                            <div className="font-medium pb-2">
+                                Số lượng:
+                            </div>
+                            <div className="flex gap-4 pb-4">
+                                <div className="w-1/4">
+                                    <NumberSpinner setCount={setCountProduct} />
+                                </div>
+                                <button className="w-3/4 border border-zinc-900 rounded-xl text-xl font-medium hover:bg-gray-100">
+                                    Thêm vào giỏ hàng
+                                </button>
+                            </div>
+                            <button className="border w-full h-12 rounded-xl bg-[#FCAF17] hover:bg-[#fdc75d] shadow-2xl">Mua hàng</button>
+                        </div>
+                        <div className="py-2 bg-slate-50">
+                            <div className="p-4">
+                                <div className="flex justify-center space-x-3 mb-3">
+                                    <Image
+                                        src={zaloPay}
+                                        alt="Picture of zalopay"
+                                        height={28} // Kích thước chiều cao
+                                    />
+                                    <Image
+                                        src={visa}
+                                        alt="Picture of visa"
+                                        height={28} // Kích thước chiều cao
+                                    />
+                                    <Image
+                                        src={masterCard}
+                                        alt="Picture of masterCard"
+                                        height={28} // Kích thước chiều cao
+                                    />
+                                    <Image
+                                        src={vnPay}
+                                        alt="Picture of vnPay"
+                                        height={28} // Kích thước chiều cao
+                                    />
+                                    <Image
+                                        src={momo}
+                                        alt="Picture of momo"
+                                        height={28} // Kích thước chiều cao
+                                    />
+                                </div>
+                                <div className="text-xs text-center">
+                                    Đảm bảo thanh toán an toàn và bảo mật
+                                </div>
+                            </div>
+                        </div>
 
-                    <div className="pt-3 text-sm">
-                        <div className="pb-3 flex">
-                            <div className="h-5 w-5 mr-3">
-                                <FontAwesomeIcon className="h-5 w-5" icon={faTruckFast} />
+                        <div className="pt-3 text-sm">
+                            <div className="pb-3 flex">
+                                <div className="h-5 w-5 mr-3">
+                                    <FontAwesomeIcon className="h-5 w-5" icon={faTruckFast} />
+                                </div>
+                                <div className="text-[#394960] font-semibold pr-1">Miễn phí vận chuyển:</div>
+                                <div className="text-[#394960]"> Đơn hàng từ 498k</div>
                             </div>
-                            <div className="text-[#394960] font-semibold pr-1">Miễn phí vận chuyển:</div>
-                            <div className="text-[#394960]"> Đơn hàng từ 498k</div>
-                        </div>
-                        <div className="pb-3 flex">
-                            <div className="h-5 w-5 mr-3">
-                                <FontAwesomeIcon className="h-5 w-5" icon={faStopwatch} />
+                            <div className="pb-3 flex">
+                                <div className="h-5 w-5 mr-3">
+                                    <FontAwesomeIcon className="h-5 w-5" icon={faStopwatch} />
+                                </div>
+                                <div className="text-[#394960] font-semibold pr-1">Giao hàng:</div>
+                                <span className="text-[#394960]">Từ 3 - 5 ngày trên cả nước</span>
                             </div>
-                            <div className="text-[#394960] font-semibold pr-1">Giao hàng:</div>
-                            <span className="text-[#394960]">Từ 3 - 5 ngày trên cả nước</span>
-                        </div>
-                        <div className="pb-3 flex">
-                            <div className="h-5 w-5 mr-3">
-                                <FontAwesomeIcon className="h-5 w-5" icon={faArrowRightArrowLeft} />
+                            <div className="pb-3 flex">
+                                <div className="h-5 w-5 mr-3">
+                                    <FontAwesomeIcon className="h-5 w-5" icon={faArrowRightArrowLeft} />
+                                </div>
+                                <div className="text-[#394960] font-semibold pr-1">Miễn phí đổi trả:</div>
+                                <span className="text-[#394960]">Tại 267+ cửa hàng trong 15 ngày</span>
                             </div>
-                            <div className="text-[#394960] font-semibold pr-1">Miễn phí đổi trả:</div>
-                            <span className="text-[#394960]">Tại 267+ cửa hàng trong 15 ngày</span>
-                        </div>
-                        <div className="pb-3 flex">
-                            <div className="h-5 w-5 mr-3">
-                                <FontAwesomeIcon className="h-5 w-5" icon={faTags} />
+                            <div className="pb-3 flex">
+                                <div className="h-5 w-5 mr-3">
+                                    <FontAwesomeIcon className="h-5 w-5" icon={faTags} />
+                                </div>
+                                <span className="text-[#394960]">Sử dụng mã giảm giá ở bước thanh toán</span>
                             </div>
-                            <span className="text-[#394960]">Sử dụng mã giảm giá ở bước thanh toán</span>
-                        </div>
-                        <div className="pb-3 flex">
-                            <div className="h-5 w-5 mr-3">
-                                <FontAwesomeIcon className="h-5 w-5" icon={faShield} />
+                            <div className="pb-3 flex">
+                                <div className="h-5 w-5 mr-3">
+                                    <FontAwesomeIcon className="h-5 w-5" icon={faShield} />
+                                </div>
+                                <span className="text-[#394960]">Thông tin bảo mật và mã hoá</span>
                             </div>
-                            <span className="text-[#394960]">Thông tin bảo mật và mã hoá</span>
                         </div>
-                    </div>
 
-                    <ul className="py-3 text-sm">
-                        <li
-                            className="list-inside list-disc"
-                        >
-                            Áo gió thông minh làm từ chất liệu vải gió, được cải tiến và nâng cấp với khả năng trượt nước. Đặc biệt có thể lộn ngược và gấp gọn thành 1 chiếc túi dễ dàng mang đi mọi nơi. Thiết kế gấu áo có chun rút, chun tay tránh gió lùa hiệu quả.
-                        </li>
-                    </ul>
+                        <ul className="py-3 text-sm">
+                            <li
+                                className="list-inside list-disc"
+                            >
+                                Áo gió thông minh làm từ chất liệu vải gió, được cải tiến và nâng cấp với khả năng trượt nước. Đặc biệt có thể lộn ngược và gấp gọn thành 1 chiếc túi dễ dàng mang đi mọi nơi. Thiết kế gấu áo có chun rút, chun tay tránh gió lùa hiệu quả.
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="col-span-1">
+                    </div>
                 </div>
-                <div className="col-span-1">
-                </div>
-            </div>
 
-            <div className="py-6 lg:py-10">
-                <RecentProduct listProduct={jacketProducts} />
+                <div className="py-6 lg:py-10">
+                    <RecentProduct listProduct={jacketProducts} />
+                </div>
             </div>
         </div>
     )

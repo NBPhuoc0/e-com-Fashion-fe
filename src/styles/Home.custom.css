@@ -1,9 +1,9 @@
 /* Tùy chỉnh màu nền của tab */
-.ant-tabs-nav-list {
+.tabsHome .ant-tabs-nav-list {
     padding: 0 20px;
 }
 
-.ant-tabs-tab {
+.tabsHome .ant-tabs-tab {
     /* Màu nền tab */
     background-color: #fafafa !important;
     justify-content: flex-start !important;
@@ -15,7 +15,7 @@
 }
 
 @media (min-width: 768px) {
-    .ant-tabs-tab {
+    .tabsHome .ant-tabs-tab {
         /* Màu nền tab */
         background-color: #fafafa !important;
         justify-content: flex-start !important;
@@ -27,26 +27,26 @@
     }
 }
 
-.ant-tabs-nav::before {
+.tabsHome .ant-tabs-nav::before {
     border-bottom: none !important
 }
 
 /* Tùy chỉnh tab đang được chọn */
-.ant-tabs-tab-active {
+.tabsHome .ant-tabs-tab-active {
     /* font-weight: 600 !important; */
     background-color: #fcaf17 !important;
 }
 
 
-.ant-tabs-ink-bar {
+.tabsHome .ant-tabs-ink-bar {
     display: none;
 }
 
-.ant-tabs-tab-btn {
+.tabsHome .ant-tabs-tab-btn {
     color: black !important;
 }
 
-.ant-custom {
+.tabsHome .ant-custom {
     padding-right: 50px !important;
     padding-left: 50px !important;
 }

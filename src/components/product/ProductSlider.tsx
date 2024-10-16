@@ -21,8 +21,6 @@ interface Product {
 }
 
 const ProductSlider = ({ product }: { product: Product }) => {
-    const [activeSlide, setActiveSlide] = useState(0);
-
     const [nav1, setNav1] = useState<Slider | null>(null);
     const [nav2, setNav2] = useState<Slider | null>(null);
     const [nav3, setNav3] = useState<Slider | null>(null);
@@ -89,7 +87,10 @@ const ProductSlider = ({ product }: { product: Product }) => {
                     arrows={false}
                 >
                     {product.images.map((item) => (
-                        <div className="h-[50vh] overflow-hidden px-2">
+                        <div
+                            key={item.id}
+                            className="h-[50vh] overflow-hidden px-2"
+                        >
                             <img src={item.url} alt="" />
                         </div>
                     ))}
