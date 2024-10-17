@@ -2,12 +2,13 @@ import { jacketProducts, jeansProducts } from "@/dummy-data/product.data";
 import ListProduct from "./ListProduct";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { ProductCategory } from "@/models/product/productCategory.model";
 
 export default function ProductRecommended() {
   const [cateIDSelected, setCateSelected] = useState(0);
   const [isSelectorVisible, setIsSelectorVisible] = useState(false);
 
-  const categorys = [
+  const categorys: ProductCategory[] = [
     {
       id: 1,
       name: "Áo Gió",
@@ -95,7 +96,12 @@ export default function ProductRecommended() {
       >
         <div
           className={`text-center text-black hover:text-gray-500 font-medium rounded-lg p-2 min-w-96 w-96 border border-gray-600 hover:border-gray-500 mt-5 text-centers ${
-            categorys[cateIDSelected].listProduct.length > 0 ? "" : "hidden"
+            (
+              categorys.find((item) => item.id === cateIDSelected)
+                ?.listProduct ?? []
+            ).length > 0
+              ? ""
+              : "hidden"
           }`}
         >
           Xem thêm
