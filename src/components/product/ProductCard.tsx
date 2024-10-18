@@ -1,22 +1,7 @@
-import FormatPrice from "@/utils/format/formatPrice";
-import { truncatedContent } from "@/utils/format/truncatedContent";
+import { ProductCardModel } from "@/models/product/productCard.model";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-interface ImageItem {
-  id: number;
-  url: string;
-}
-
-interface Product {
-  id: number;
-  name: string;
-  min_variant_price: number;
-  images: ImageItem[];
-  title: string;
-}
-
-const ProductCard = ({ product }: { product: Product }) => {
+const ProductCard = ({ product }: { product: ProductCardModel }) => {
   return (
     <Link href={`product/${product.id}`}>
       <div>

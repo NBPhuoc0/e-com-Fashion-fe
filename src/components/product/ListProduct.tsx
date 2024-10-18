@@ -1,34 +1,26 @@
 import { Tabs } from "antd";
 import React from "react";
 import ProductCard from "./ProductCard";
+import { ProductCardModel } from "@/models/product/productCard.model";
 
-interface ImageItem {
-  id: number;
-  url: string;
-}
+const ListProduct = ({ listProduct }: { listProduct: ProductCardModel[] }) => {
+    return (
+        <div>
+            <div className='sectionContainer'>
+                {listProduct.length > 0 ?
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" >
+                        {
+                            listProduct.map((item) => (
+                                <ProductCard product={item} />
+                            ))
+                        }
+                    </div>
+                    : <span className='font-light'>-- Chưa có sản phẩm --</span>
 
-interface Categorys {
-  id: number;
-  name: string;
-  min_variant_price: number;
-  images: ImageItem[];
-  title: string;
-}
-
-const ListProduct = ({ listProduct }: { listProduct: Categorys[] }) => {
-  return (
-    <div className="mx-auto">
-      {listProduct.length > 0 ? (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-          {listProduct.map((item, index) => (
-            <ProductCard key={index} product={item} />
-          ))}
+                }
+            </div >
         </div>
-      ) : (
-        <span className="font-light">-- Chưa có sản phẩm --</span>
-      )}
-    </div>
-  );
-};
+    )
+}
 
 export default ListProduct;

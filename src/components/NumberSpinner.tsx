@@ -2,12 +2,7 @@ import React from 'react';
 import type { InputNumberProps } from 'antd';
 import { InputNumber } from 'antd';
 
-
-interface NumberSpinnerProps {
-    setCount: (value: number) => void;
-}
-
-const NumberSpinner: React.FC<NumberSpinnerProps> = ({ setCount }) => {
+const NumberSpinner = ({ setCount }: { setCount: (value: number) => void; }) => {
     const onChange: InputNumberProps['onChange'] = (value) => {
         console.log('changed', value);
         if (typeof value === 'number') { // Kiểm tra xem value có phải là số hay không

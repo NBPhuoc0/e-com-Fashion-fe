@@ -7,7 +7,7 @@ import { Col, Row, Tabs } from "antd";
 import { useEffect, useState } from "react";
 
 import "../styles/Home.custom.css"
-import { jacketProducts, jeansProducts } from "@/dummy-data/product.data";
+import { jacketProductsHome, jeansProductsHome } from "@/dummy-data/product.data";
 import Link from "next/link";
 import ProductRecommended from "@/components/product/ProductRecommended";
 
@@ -30,12 +30,12 @@ export default function Home() {
     {
       id: 1,
       name: 'Áo Gió',
-      listProduct: jacketProducts
+      listProduct: jacketProductsHome
     },
     {
       id: 2,
       name: 'Jeans Flex',
-      listProduct: jeansProducts
+      listProduct: jeansProductsHome
     },
     {
       id: 3,
@@ -78,8 +78,7 @@ export default function Home() {
     <main>
       <div className='sectionContainer'>
         <BannerSlider banners={banners} />
-
-        <div className="mt-6">
+        <div className="mt-6 tabsHome">
           <h2 className="text-2xl md:text-3xl text-center py-2">Sản phẩm ưa chuộng</h2>
           <Tabs
             defaultActiveKey="1"

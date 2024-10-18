@@ -1,4 +1,4 @@
-import { jacketProducts, jeansProducts } from "@/dummy-data/product.data";
+import { jacketProductsHome, jeansProductsHome } from "@/dummy-data/product.data";
 import ListProduct from "./ListProduct";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -12,12 +12,12 @@ export default function ProductRecommended() {
     {
       id: 1,
       name: "Áo Gió",
-      listProduct: jacketProducts,
+      listProduct: jacketProductsHome,
     },
     {
       id: 2,
       name: "Jeans Flex",
-      listProduct: jeansProducts,
+      listProduct: jeansProductsHome,
     },
     {
       id: 3,
