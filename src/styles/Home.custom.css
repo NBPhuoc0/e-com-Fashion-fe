@@ -31,19 +31,20 @@
     border-bottom: none !important
 }
 
-/* Tùy chỉnh tab đang được chọn */
 .tabsHome .ant-tabs-tab-active {
-    /* font-weight: 600 !important; */
     background-color: #fcaf17 !important;
 }
 
+.tabsHome .ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: black !important;
+}
 
 .tabsHome .ant-tabs-ink-bar {
     display: none;
 }
 
 .tabsHome .ant-tabs-tab-btn {
-    color: black !important;
+    color: #949494 !important;
 }
 
 .tabsHome .ant-custom {

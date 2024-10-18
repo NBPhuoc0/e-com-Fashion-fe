@@ -18,7 +18,6 @@ const SizeGuide: React.FC = () => {
         setOpen(true);
         setLoading(true);
 
-        // Simple loading mock. You should add cleanup logic in real world.
         setTimeout(() => {
             setLoading(false);
         }, 1000);

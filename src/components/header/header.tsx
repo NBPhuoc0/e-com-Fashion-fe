@@ -54,7 +54,7 @@ export default function Header() {
                         </svg>
                     </button>
                     
-                    <a href="/auth/login" className="auth border-gray-300 border p-1 px-5 hover:border-blue-400 hover:text-blue-400 transition-all duration-200 rounded-full">
+                    <a href="/auth/signin" className="auth border-gray-300 border p-1 px-5 hover:border-blue-400 hover:text-blue-400 transition-all duration-200 rounded-full">
                         Đăng nhập
                     </a>
                 </div>

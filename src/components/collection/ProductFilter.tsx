@@ -4,17 +4,16 @@ import SubMenu from 'antd/es/menu/SubMenu';
 
 import './ProductFilter.css'
 
-export default function ProductFilter({ collections }: {
+export default function ProductFilter({ collections, listFilters, onListFilter }: {
     collections: {
         collectionGender: { id: string; name: string; }[];
         collectionColor: { id: string; name: string; }[];
         collectionSize: { id: string; name: string; }[];
         collectionPrice: { id: string; name: string; }[];
-    }
+    };
+    listFilters: { id: string, name: string }[];
+    onListFilter: (selectedItems: { id: string; name: string }[]) => void;
 }) {
-    const [selectedKeys, setSelectedKeys] = useState<{ id: string; name: string }[]>([]);
-    console.log("🚀 ~ selectedKeys:", selectedKeys)
-
     const onClick: MenuProps['onClick'] = (e) => {
         const { key, domEvent } = e;
         const target = domEvent.target as HTMLElement;
@@ -22,27 +21,25 @@ export default function ProductFilter({ collections }: {
         const id = key;
         const name = target.innerText || target.textContent;
 
-        const alreadySelected = selectedKeys.some((item) => item.id === id);
+        const alreadySelected = listFilters.some((item) => item.id === id);
+
+        let newSelectedKeys: { id: string; name: string }[] = [];
 
         if (alreadySelected) {
-            setSelectedKeys((prevSelectedKeys) =>
-                prevSelectedKeys.filter((item) => item.id !== id)
-            );
+            newSelectedKeys = listFilters.filter((item) => item.id !== id);
         } else {
-
-            setSelectedKeys((prevSelectedKeys) => [
-                ...prevSelectedKeys,
-                { id, name: name || '' },
-            ]);
+            newSelectedKeys = [...listFilters, { id, name: name || '' }];
         }
+
+        onListFilter(newSelectedKeys);
     };
 
-    const isSelected = (id: string) => selectedKeys.some((item) => item.id === id);
+    const isSelected = (id: string) => listFilters.some((item) => item.id === id);
     const renderCollectionGender = () => {
         return [
             collections.collectionGender.map((item) => (
                 <Menu.Item className='custom-item' key={item.id}>
-                    <Checkbox className='custom-checkbox' checked={isSelected(item.id)}></Checkbox>
+                    <Checkbox className='custom-checkbox pointer-events-none' checked={isSelected(item.id)}></Checkbox>
                     <span className='pl-3'>{item.name}</span>
                 </Menu.Item>
             ))
@@ -52,7 +49,7 @@ export default function ProductFilter({ collections }: {
         return [
             collections.collectionColor.map((item) => (
                 <Menu.Item className='custom-item custom-item-color' key={item.id}>
-                    <Checkbox className='custom-checkbox custom-checkbox-color' checked={isSelected(item.id)}></Checkbox>
+                    <Checkbox className='custom-checkbox custom-checkbox-color pointer-events-none' checked={isSelected(item.id)}></Checkbox>
                     <span>{item.name}</span>
                 </Menu.Item>
             ))
@@ -72,7 +69,7 @@ export default function ProductFilter({ collections }: {
         return [
             collections.collectionPrice.map((item) => (
                 <Menu.Item className='custom-item' key={item.id}>
-                    <Checkbox className='custom-checkbox' checked={isSelected(item.id)}></Checkbox>
+                    <Checkbox className='custom-checkbox pointer-events-none' checked={isSelected(item.id)}></Checkbox>
                     <span className='pl-3'>{item.name}</span>
                 </Menu.Item>
             ))
@@ -87,7 +84,7 @@ export default function ProductFilter({ collections }: {
                 <Menu
                     onClick={onClick}
                     defaultOpenKeys={['sub1', 'sub2', 'sub3', 'sub4']}
-                    selectedKeys={selectedKeys.map(item => item.id)}
+                    selectedKeys={listFilters.map(item => item.id)}
                     mode="inline"
                 >
                     <SubMenu className='' key="sub1" title="Giới tính">

@@ -1,21 +1,9 @@
-import { Tabs } from 'antd';
-import React from 'react'
-import ProductCard from './ProductCard';
+import { Tabs } from "antd";
+import React from "react";
+import ProductCard from "./ProductCard";
+import { ProductCardModel } from "@/models/product/productCard.model";
 
-interface ImageItem {
-    id: number;
-    url: string;
-}
-
-interface Categorys {
-    id: number;
-    name: string;
-    min_variant_price: number;
-    images: ImageItem[]
-    title: string;
-}
-
-const ListProduct = ({ listProduct }: { listProduct: Categorys[] }) => {
+const ListProduct = ({ listProduct }: { listProduct: ProductCardModel[] }) => {
     return (
         <div>
             <div className='sectionContainer'>
@@ -35,4 +23,4 @@ const ListProduct = ({ listProduct }: { listProduct: Categorys[] }) => {
     )
 }
 
-export default ListProduct
+export default ListProduct;
