@@ -18,7 +18,6 @@ const SizeGuide: React.FC = () => {
         setOpen(true);
         setLoading(true);
 
-        // Simple loading mock. You should add cleanup logic in real world.
         setTimeout(() => {
             setLoading(false);
         }, 1000);
@@ -86,29 +85,31 @@ const SizeGuide: React.FC = () => {
                 onCancel={() => setOpen(false)}
                 width={890}
             >
-                <Tabs
-                    defaultActiveKey="1"
-                    centered={isCentered}
-                    items={infos.map((item, i) => {
-                        const id = String(i + 1);
-                        return {
-                            label: item.name,
-                            key: id,
-                            children: (
-                                <div className='h-[68vh] modal-body overflow-y-auto'>
-                                    <Image
-                                        src={item.image}
-                                        alt="Picture of the author"
-                                    // width={500} automatically provided
-                                    // height={500} automatically provided
-                                    // blurDataURL="data:..." automatically provided
-                                    // placeholder="blur" // Optional blur-up while loading
-                                    />
-                                </div>
-                            )
-                        };
-                    })}
-                />
+                <div className='tabSizeGuide'>
+                    <Tabs
+                        defaultActiveKey="1"
+                        centered={isCentered}
+                        items={infos.map((item, i) => {
+                            const id = String(i + 1);
+                            return {
+                                label: item.name,
+                                key: id,
+                                children: (
+                                    <div className='h-[68vh] modal-body overflow-y-auto'>
+                                        <Image
+                                            src={item.image}
+                                            alt="Picture of the author"
+                                        // width={500} automatically provided
+                                        // height={500} automatically provided
+                                        // blurDataURL="data:..." automatically provided
+                                        // placeholder="blur" // Optional blur-up while loading
+                                        />
+                                    </div>
+                                )
+                            };
+                        })}
+                    />
+                </div>
             </Modal>
         </>
     );

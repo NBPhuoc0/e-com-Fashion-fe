@@ -6,23 +6,9 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import './ProductSlider.css'
+import { ProductCardModel } from "@/models/product/productCard.model";
 
-interface ImageItem {
-    id: number;
-    url: string;
-}
-
-interface Product {
-    id: number;
-    name: string;
-    min_variant_price: number;
-    images: ImageItem[]
-    title: string;
-}
-
-const ProductSlider = ({ product }: { product: Product }) => {
-    const [activeSlide, setActiveSlide] = useState(0);
-
+const ProductSlider = ({ product }: { product: ProductCardModel }) => {
     const [nav1, setNav1] = useState<Slider | null>(null);
     const [nav2, setNav2] = useState<Slider | null>(null);
     const [nav3, setNav3] = useState<Slider | null>(null);
@@ -89,7 +75,10 @@ const ProductSlider = ({ product }: { product: Product }) => {
                     arrows={false}
                 >
                     {product.images.map((item) => (
-                        <div className="h-[50vh] overflow-hidden px-2">
+                        <div
+                            key={item.id}
+                            className="h-[50vh] overflow-hidden px-2"
+                        >
                             <img src={item.url} alt="" />
                         </div>
                     ))}

@@ -3,21 +3,8 @@ import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProductCard from "./ProductCard";
+import { ProductCardModel } from "@/models/product/productCard.model";
 
-interface ImageItem {
-    id: number;
-    url: string;
-}
-
-interface Categorys {
-    id: number;
-    name: string;
-    min_variant_price: number;
-    images: ImageItem[];
-    title: string;
-}
-
-// Tạo mũi tên tùy chỉnh sử dụng Tailwind CSS
 function SampleNextArrow(props: any) {
     const { className, style, onClick } = props;
     return (
@@ -42,7 +29,7 @@ function SamplePrevArrow(props: any) {
     );
 }
 
-const RecentProduct = ({ listProduct }: { listProduct: Categorys[] }) => {
+const RecentProduct = ({ listProduct }: { listProduct: ProductCardModel[] }) => {
     const settings: Settings = {
         dots: true,
         infinite: false,
