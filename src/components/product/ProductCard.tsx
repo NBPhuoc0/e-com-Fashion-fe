@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const ProductCard = ({ product }: { product: ProductCardModel }) => {
   return (
-    <Link href={`product/${product.id}`}>
+    <Link href={`/product/${product.id}`}>
       <div>
         <img loading="lazy" src={product.images[0].url} alt="" />
         <div className="pt-3 text-black">

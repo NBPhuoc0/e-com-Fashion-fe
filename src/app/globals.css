@@ -24,7 +24,6 @@
 .sectionContainer {
   width: 100%;
   max-width: 1460px;
-  min-width: 400px;
   margin-left: auto;
   margin-right: auto;
   @apply md:px-10 px-5;
