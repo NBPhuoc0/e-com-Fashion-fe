@@ -9,22 +9,22 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        "xl-1320": "1320px",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
       gridTemplateColumns: {
-        '24': 'repeat(24, minmax(0, 1fr))',
+        "24": "repeat(24, minmax(0, 1fr))",
       },
       gridColumn: {
-        'span-20': 'span 20 / span 20',
-        'span-24': 'span 24 / span 24'
+        "span-20": "span 20 / span 20",
+        "span-24": "span 24 / span 24",
       },
-
     },
   },
-  plugins: [
-    flowbite.plugin(),
-  ],
+  plugins: [flowbite.plugin()],
 };
 export default config;
