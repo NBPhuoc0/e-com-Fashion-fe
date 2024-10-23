@@ -91,10 +91,7 @@ export default function Header() {
             />
           </div>
 
-          <Link
-            href={"/cart"}
-            className="cart hover:text-[#fcaf17] transition-all duration-200"
-          >
+          <button className="cart hover:text-[#fcaf17] transition-all duration-200">
             <Badge count={5}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +108,7 @@ export default function Header() {
                 />
               </svg>
             </Badge>
-          </Link>
+          </button>
 
           <Link
             href={"/auth/signin"}
