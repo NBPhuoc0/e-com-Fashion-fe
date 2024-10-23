@@ -46,9 +46,8 @@ export default function Sidebar({
             <div className="flex flex-col text-base">
               {CollectionItems.map((item, index) => {
                 return (
-                  <div>
+                  <div key={item.id}>
                     <Link
-                      key={index}
                       href={"#"}
                       className="flex items-center justify-between text-black hover:text-black py-3"
                     >

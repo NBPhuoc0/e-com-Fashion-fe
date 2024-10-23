@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
+import Header from "@/components/header/Header";
 // const geistSans = localFont({
 //   src: "../public/assets/fonts/GeistVF.woff",
 //   variable: "--font-geist-sans",
@@ -28,9 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <Header />
-        <AntdRegistry>{children}</AntdRegistry>
-        <Footer />
+        <AntdRegistry>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </AntdRegistry>
       </body>
     </html>
   );
