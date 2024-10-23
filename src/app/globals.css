@@ -26,7 +26,7 @@
   max-width: 1460px;
   margin-left: auto;
   margin-right: auto;
-  @apply md:px-10 px-5;
+  @apply lg:px-10 px-5;
 }
 
 body {

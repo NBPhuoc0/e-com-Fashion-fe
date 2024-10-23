@@ -1,5 +1,6 @@
 export const CollectionItems = [
   {
+    id: 1,
     category: "New & Featured",
     href: "/new-&-featured",
     product: [
@@ -49,6 +50,7 @@ export const CollectionItems = [
     ],
   },
   {
+    id: 2,
     category: "Men",
     href: "/men",
     product: [
@@ -151,6 +153,7 @@ export const CollectionItems = [
     ],
   },
   {
+    id: 3,
     category: "Women",
     href: "/women",
     product: [
@@ -248,6 +251,7 @@ export const CollectionItems = [
     ],
   },
   {
+    id: 4,
     category: "Kids",
     href: "/kids",
     product: [
@@ -354,6 +358,7 @@ export const CollectionItems = [
     ],
   },
   {
+    id: 5,
     category: "Sale",
     href: "/sale",
     product: [
@@ -385,10 +390,12 @@ export const CollectionItems = [
     ],
   },
   {
+    id: 6,
     category: "Customise",
     href: "/nike-by-you",
   },
   {
+    id: 7,
     category: "SNKRS",
     href: "launch",
   },
