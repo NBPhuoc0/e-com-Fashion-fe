@@ -1,14 +1,25 @@
+"use client";
 import Link from "next/link";
 import { CollectionItems } from "@/dummy-data/collection.data";
 import MegaMenu from "../mega-menu/MegaMenu";
 import { Badge } from "antd";
+import { useState } from "react";
+import Sidebar from "../sidebar/Sidebar";
+
 export default function Header() {
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+
   return (
     <header className="w-full md:mb-5 mb-2 sticky top-0 left-0 right-0 border-b border-gray-100 bg-white z-30">
       <nav className="sectionContainer header__nav flex justify-between items-center py-3">
         <div className="header__nav--item left flex items-center gap-10">
           <div className="flex items-center gap-5">
-            <div className="xl-1320:hidden flex flex-col gap-1 cursor-pointer">
+            <div
+              onClick={() => {
+                setIsSidebarVisible(!isSidebarVisible);
+              }}
+              className="button-sidebar-menu xl-1320:hidden flex flex-col gap-1 cursor-pointer"
+            >
               <div className="w-6 h-[2px] bg-gray-800"></div>
               <div className="w-6 h-[2px] bg-gray-800"></div>
               <div className="w-6 h-[2px] bg-gray-800"></div>
@@ -29,7 +40,6 @@ export default function Header() {
                 </Link>
               );
             })}
-            <Link href={"blog"}>Tin tuc</Link>
           </div>
         </div>
 
@@ -108,6 +118,11 @@ export default function Header() {
           </Link>
         </div>
       </nav>
+
+      <Sidebar
+        isVisible={isSidebarVisible}
+        closeSidebar={setIsSidebarVisible}
+      />
     </header>
   );
 }
