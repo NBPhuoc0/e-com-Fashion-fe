@@ -28,7 +28,7 @@ const ModalProduct = ({ product }: { product: ProductCardModel }) => {
 
     return (
         <>
-            <button className='flex px-4 py-1 bg-slate-100 rounded-xl' onClick={showModal}>
+            <button className='flex px-2 sm:px-4 py-1 bg-slate-100 rounded-md lg:rounded-xl text-xs lg:text-base' onClick={showModal}>
                 <span>{product.colors[0].color}, {product.sizes[0].size}</span>
                 <span className='pl-2'><FontAwesomeIcon icon={faChevronDown} /></span>
             </button>

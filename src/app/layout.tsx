@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Head from "next/head";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Header from "@/components/header/header";
@@ -29,9 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <Header />
-        <AntdRegistry>{children}</AntdRegistry>
-        <Footer />
+        <AntdRegistry>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </AntdRegistry>
       </body>
     </html>
   );

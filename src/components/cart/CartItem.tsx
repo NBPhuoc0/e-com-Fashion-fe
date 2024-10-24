@@ -13,11 +13,11 @@ export default function CartItem({ product }: { product: ProductCardModel }) {
             <div className='flex gap-4 py-3'>
                 <Checkbox />
                 <div className='flex w-full gap-6'>
-                    <img className='w-28' loading="lazy" src={product.images[0].url} alt="" />
+                    <img className='w-16 xl:w-28' loading="lazy" src={product.images[0].url} alt="" />
                     <div className='flex flex-col gap-3 w-full'>
                         <div className='flex flex-col gap-2'>
-                            <div className='line-clamp-1 font-medium text-[#1c2430]'>{product.name}</div>
-                            <div className='flex gap-3'>
+                            <div className='text-xs lg:text-base line-clamp-1 font-medium text-[#1c2430]'>{product.name}</div>
+                            <div className='flex text-xs lg:text-base gap-3'>
                                 <span className={`font-medium ${product.promotion_price != 0 ? 'text-[#e14337]' : 'text-[#1c2430]'}`}>
                                     {(product.min_variant_price - product.promotion_price).toLocaleString("vi-VN", {
                                         style: "currency",
@@ -35,11 +35,11 @@ export default function CartItem({ product }: { product: ProductCardModel }) {
                                 }
                             </div>
                         </div>
-                        <div className='flex mt-auto justify-between'>
+                        <div className='flex mt-auto justify-between items-center'>
                             <div>
                                 <ModalProduct product={product} />
                             </div>
-                            <div className='w-1/6'>
+                            <div className='w-1/3 sm:w-1/6'>
                                 <NumberSpinner setCount={setCountProduct} />
                             </div>
                         </div>

@@ -1,6 +1,6 @@
-import { Tabs } from "antd";
 import React from "react";
 import ProductCard from "./ProductCard";
+import { ProductCardModel } from "@/models/product/productCard.model";
 import { ProductCardModel } from "@/models/product/productCard.model";
 
 const ListProduct = ({ listProduct }: { listProduct: ProductCardModel[] }) => {
