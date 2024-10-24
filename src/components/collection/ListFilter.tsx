@@ -1,6 +1,8 @@
 import { Button } from 'antd';
 import React from 'react'
 import SelectC from '../Select';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 export default function ListFilter({ listFilters, onListFilter }: {
     listFilters: { id: string, name: string }[];
@@ -17,7 +19,7 @@ export default function ListFilter({ listFilters, onListFilter }: {
         label: (
             <p className='flex justify-between'>
                 <span>{item.name}</span>
-                <span style={{ cursor: 'pointer' }} onClick={() => handleChange(item.id)}>X</span>
+                <span style={{ cursor: 'pointer' }} onClick={() => handleChange(item.id)}><FontAwesomeIcon icon={faXmark} /></span>
             </p>
         )
     }));
@@ -29,7 +31,7 @@ export default function ListFilter({ listFilters, onListFilter }: {
                     listFilters.map((item) => (
                         <div className='flex items-center space-x-2 px-5 py-1.5 bg-gray-100 rounded-lg text-xs'>
                             <span>{item.name}</span>
-                            <span style={{ cursor: 'pointer' }} onClick={() => handleChange(item.id)}>X</span>
+                            <span style={{ cursor: 'pointer' }} onClick={() => handleChange(item.id)}><FontAwesomeIcon icon={faXmark} /></span>
                         </div>
                     ))) : (
                     <SelectC value={`${listFilters.length} bộ lọc`} textDefault='' options={options} width={220} handleChange={handleChange} />

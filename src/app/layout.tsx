@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/Header";
+import Header from "@/components/header/header";
+import Footer from "@/components/footer/footer";
 // const geistSans = localFont({
 //   src: "../public/assets/fonts/GeistVF.woff",
 //   variable: "--font-geist-sans",

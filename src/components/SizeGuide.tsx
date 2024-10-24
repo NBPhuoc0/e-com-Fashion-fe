@@ -83,7 +83,7 @@ const SizeGuide: React.FC = () => {
                 loading={loading}
                 open={open}
                 onCancel={() => setOpen(false)}
-                width={890}
+                width={920}
             >
                 <div className='tabSizeGuide'>
                     <Tabs

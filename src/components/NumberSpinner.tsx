@@ -19,7 +19,7 @@ const NumberSpinner = ({ setCount }: { setCount: (value: number) => void; }) => 
             style={{
                 width: '100%',
             }}
-            size='large'
+            size='middle'
         />
     );
 };
