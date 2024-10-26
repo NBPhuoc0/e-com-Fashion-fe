@@ -30,12 +30,12 @@ const ProductSlider = ({ product }: { product: ProductCardModel }) => {
 
     return (
         <>
-            <div id="slider1" className="slider-container grid grid-cols-10 gap-3">
+            <div id="slider1" className="slider-container grid grid-cols-10 gap-1 xl:gap-2">
                 <div className="col-span-1">
                     <Slider
                         asNavFor={nav1 ?? undefined}
                         ref={sliderRef2}
-                        slidesToShow={7} // Hiển thị tối đa 7 item
+                        slidesToShow={6} // Hiển thị tối đa 7 item
                         slidesToScroll={1}
                         swipeToSlide={false} // Vô hiệu hóa swipe
                         focusOnSelect={true}
@@ -71,7 +71,7 @@ const ProductSlider = ({ product }: { product: ProductCardModel }) => {
             <div id="slider2" className="slider-container">
                 <Slider
                     asNavFor={nav4 ?? undefined}
-                    ref={sliderRef3}
+                    ref={sliderRef3}    
                     arrows={false}
                 >
                     {product.images.map((item) => (
