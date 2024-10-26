@@ -17,12 +17,15 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       gridTemplateColumns: {
-        "24": "repeat(24, minmax(0, 1fr))",
+        '24': 'repeat(24, minmax(0, 1fr))',
       },
       gridColumn: {
-        "span-20": "span 20 / span 20",
-        "span-24": "span 24 / span 24",
+        'span-14': 'span 14 / span 14',
+        'span-20': 'span 20 / span 20',
+        'span-22': 'span 22 / span 22',
+        'span-24': 'span 24 / span 24',
       },
+
     },
   },
   plugins: [flowbite.plugin()],
