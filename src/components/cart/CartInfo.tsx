@@ -1,5 +1,6 @@
 import React from 'react'
 import PaymentMethod from './PaymentMethod'
+import Link from 'next/link'
 
 export default function CartInfo() {
     return (
@@ -27,11 +28,11 @@ export default function CartInfo() {
             </div>
 
             <span className="flex text-xs lg:text-base justify-end text-red-500 font-normal text-right">Bạn đã tiết kiệm được 120.000 đ</span>
-
-            <button className="bg-[#fcaf17] border-[#ca8c12] w-full rounded-full mt-7 h-10 font-semibold">
-                <span className="line-clamp-1 text-sm lg:text-base">Mua hàng (3)</span>
-            </button>
-
+            <Link href={'/checkout'}>
+                <button className="bg-[#fcaf17] border-[#ca8c12] w-full rounded-full mt-7 h-10 font-semibold">
+                    <span className="line-clamp-1 text-sm lg:text-base">Mua hàng (3)</span>
+                </button>
+            </Link>
             <PaymentMethod />
         </div>
     )
