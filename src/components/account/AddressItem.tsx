@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from 'antd'
 import React from 'react'
 
-export default function AdressItem({ infoAddress }: {
+export default function AdressItem({ onOpen, infoAddress }: {
     infoAddress: {
         name: string,
         phoneNumber: string,
@@ -13,15 +13,16 @@ export default function AdressItem({ infoAddress }: {
         province: string,
         typeAddress: number,
         defaultAddress: boolean
-    }
+    },
+    onOpen: () => void
 }) {
     return (
         <div className='p-4 bg-white flex items-center justify-between'>
             <div className='flex items-center space-x-5'>
                 <div className={`${infoAddress.defaultAddress ? 'bg-red-100' : 'bg-slate-100'} h-12 w-12 rounded-full flex justify-center items-center`}>
                     {infoAddress.typeAddress === 1 ?
-                        <FontAwesomeIcon className={`${infoAddress.defaultAddress ? 'text-red-600' : ''} h-5 w-5`} icon={faBuilding} />
-                        : <FontAwesomeIcon className={`${infoAddress.defaultAddress ? 'text-red-600' : ''} h-5 w-5`} icon={faHouse} />}
+                        <FontAwesomeIcon className={`${infoAddress.defaultAddress ? 'text-red-600' : ''} h-5 w-5`} icon={faHouse} />
+                        : <FontAwesomeIcon className={`${infoAddress.defaultAddress ? 'text-red-600' : ''} h-5 w-5`} icon={faBuilding} />}
                 </div>
                 <div>
                     <div className='flex items-center space-x-3'>
@@ -42,7 +43,7 @@ export default function AdressItem({ infoAddress }: {
             </div>
             <div>
                 <div className='text-end'>
-                    <Button color="primary" variant="text">Cập nhật</Button>
+                    <Button onClick={onOpen} color="primary" variant="text">Cập nhật</Button>
                     {!infoAddress.defaultAddress && <Button color="danger" variant="text">Xóa</Button>}
                 </div>
                 {!infoAddress.defaultAddress && <Button>Thiết lập mặc định</Button>}
