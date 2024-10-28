@@ -11,9 +11,12 @@ export default function Cart() {
                     <h2 className='col-span-22 col-start-2 mt-3 py-4 px-8 text-lg lg:text-2xl font-semibold bg-white'>Giỏ hàng</h2>
                     <div className='col-span-14 col-start-2'>
                         <div className='flex flex-col gap-1'>
-                            {jacketProductsHome.map((item) => (
-                                <CartItem product={item} />
-                            ))}
+                            {jacketProductsHome.map((item, index) => (
+                                <div key={index}>
+                                    <CartItem product={item} />
+                                </div>
+                            )
+                            )}
                         </div>
                     </div>
                     <div className='col-span-8'>
