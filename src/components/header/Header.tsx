@@ -90,9 +90,7 @@ export default function Header() {
               placeholder="search"
             />
           </div>
-          <Link
-            href={"/cart"}
-          >
+          <Link href={"/cart"}>
             <button className="cart hover:text-[#fcaf17] transition-all duration-200">
               <Badge count={5}>
                 <svg
