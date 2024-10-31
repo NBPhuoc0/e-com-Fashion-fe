@@ -50,6 +50,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
 
           <div className="lg:col-span-11 md:col-span-12 col-span-12">
             {/* info product */}
+
             <div className="py-2">
               <h2 className="text-2xl font-medium">{product.name}</h2>
 
