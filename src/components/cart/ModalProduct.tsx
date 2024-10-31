@@ -39,7 +39,7 @@ const ModalProduct = ({ product }: { product: ProductCardModel }) => {
                 onOk={handleOk}
                 onCancel={handleCancel}
                 width={'60%'}
-                bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
+                styles={{ body: { maxHeight: '60vh', overflowY: 'auto' } }}
             >
                 <div>
                     <div className='flex gap-5'>
@@ -86,7 +86,7 @@ const ModalProduct = ({ product }: { product: ProductCardModel }) => {
                         </div>
                     </div>
                 </div>
-            </Modal>
+            </Modal >
         </>
     );
 };
