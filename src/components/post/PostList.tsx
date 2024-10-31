@@ -22,7 +22,7 @@ export default function PostList() {
     <Row gutter={16}>
       {posts.map((item) => {
         return (
-          <Col span={12} key={item.id}>
+          <Col span={24} lg={12} key={item.id} className="mb-4">
             <PostCard post={item} />
           </Col>
         );
