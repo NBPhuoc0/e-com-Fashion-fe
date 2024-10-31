@@ -20,7 +20,8 @@ import RecentProduct from "@/components/product/RecentProducts";
 import ProductColor from "@/components/product/ProductColor";
 import ProductSize from "@/components/product/ProductSize";
 import PaymentMethod from "@/components/cart/PaymentMethod";
-import { Col, Row } from "antd";
+import ProductReview from "@/components/product/ProductReview";
+
 export default function ProductDetails({ params }: { params: { id: string } }) {
   const breadcrumbItems = [
     { title: "Trang chủ", link: "/" },
@@ -35,21 +36,25 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
   const [countProduct, setCountProduct] = useState<number>(1);
 
   return (
-    <div>
+    <div className="">
       <div className="sectionContainer">
         <BreadcrumbC items={breadcrumbItems} />
-        <div className="grid md:grid-cols-24 grid-cols-12 lg:gap-10 gap-5 md:overflow-auto overflow-hidden">
+        <div className="grid md:grid-cols-24 grid-cols-12 lg:gap-10 gap-5 ">
           <div className="lg:col-span-1 lg:block hidden"></div>
+
           <div className="lg:col-span-11 md:col-span-12 col-span-12">
             <div className="sticky top-[80px]">
               <ProductSlider product={product} />
             </div>
           </div>
+
           <div className="lg:col-span-11 md:col-span-12 col-span-12">
             {/* info product */}
 
             <div className="py-2">
-              <h2 className="text-lg xl:text-2xl font-medium">{product.name}</h2>
+              <h2 className="text-lg xl:text-2xl font-medium">
+                {product.name}
+              </h2>
 
               <div className="py-2 flex items-center gap-1">
                 <div className="mr-2">{params.id}</div>
@@ -72,13 +77,18 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
               </div>
             </div>
 
-            <div className="font-semibold text-[#1c2430] text-lg xl:text-2xl">
-              {product.min_variant_price.toLocaleString()} đ
+            <div className="font-semibold text-[#1c2430] text-2xl">
+              {product.min_variant_price.toLocaleString("vi-VN", {
+                style: "currency",
+                currency: "VND",
+              })}
             </div>
 
             {/* info discount */}
             <div className="py-2 flex items-center">
-              <div className="w-1/3 text-xs xl:text-sm">Giảm 69K cho đơn hàng từ 499K</div>
+              <div className="w-1/3 text-xs xl:text-sm">
+                Giảm 69K cho đơn hàng từ 499K
+              </div>
 
               <div className="w-2/3 flex items-center">
                 <span className="py-1 px-4 border rounded-md border-gray-300 border-dashed text-xs text-red-600 my-0.5 mx-1.5 bg-zinc-100">
@@ -201,10 +211,20 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
               </li>
             </ul>
           </div>
+
           <div className="lg:col-span-1 lg:block hidden"></div>
         </div>
-        <div className="py-6 lg:py-10">
-          <RecentProduct listProduct={jacketProducts} />
+      </div>
+
+      <div className="bg-gray-100 py-5">
+        <div className="sectionContainer">
+          <div className="bg-white p-5 py-8 rounded-lg mb-5">
+            <ProductReview />
+          </div>
+
+          <div className="bg-white p-5 rounded-lg">
+            <RecentProduct listProduct={jacketProducts} />
+          </div>
         </div>
       </div>
     </div>
