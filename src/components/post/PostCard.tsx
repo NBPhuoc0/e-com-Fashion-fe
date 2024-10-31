@@ -10,9 +10,13 @@ export default function PostCard({ post }: { post: Post }) {
             <img loading="lazy" src={post.image} alt="poster" />
           </div>
 
-          <h3 className="font-medium text-2xl mt-5">{post.title}</h3>
+          <h3 className="font-medium text-md md:text-xl lg:text-2xl md:mt-5 mt-2 line-clamp-1">
+            {post.title}
+          </h3>
 
-          <span className="text-gray-500 line-clamp-2">{post.description}</span>
+          <span className="text-gray-500 line-clamp-2 text-[10px] md:text-sm">
+            {post.description}
+          </span>
         </div>
       </Link>
     </>

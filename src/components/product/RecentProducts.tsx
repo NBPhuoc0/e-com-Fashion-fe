@@ -23,7 +23,7 @@ function SamplePrevArrow(props: any) {
     return (
         <div
             className={`${className} rounded-xl`}
-            style={{ ...style, display: "block", background: "#a4a4a4", left: 0, zIndex: 100, top: '40%' }}
+            style={{ ...style, display: "block", background: "#a4a4a4", left: 0, zIndex: 1, top: '40%' }}
             onClick={onClick}
         />
     );

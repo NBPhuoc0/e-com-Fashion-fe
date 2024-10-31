@@ -1,0 +1,3 @@
+.banner__slider .slick-dots .slick-dots-bottom::after {
+  display: none !important;
+}

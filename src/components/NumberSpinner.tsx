@@ -1,27 +1,38 @@
-import React from 'react';
-import type { InputNumberProps } from 'antd';
-import { InputNumber } from 'antd';
+import React from "react";
 
-const NumberSpinner = ({ setCount }: { setCount: (value: number) => void; }) => {
-    const onChange: InputNumberProps['onChange'] = (value) => {
-        console.log('changed', value);
-        if (typeof value === 'number') { // Kiểm tra xem value có phải là số hay không
-            setCount(value);  // Gọi setCount nếu value là số
-        }
-    };
+const NumberSpinner = ({
+  count,
+  setCount,
+}: {
+  count: number;
+  setCount: (value: number) => void;
+}) => {
+  const increase = () => {
+    setCount(count + 1);
+  };
 
-    return (
-        <InputNumber
-            min={1}
-            max={10}
-            defaultValue={1}
-            onChange={onChange}
-            style={{
-                width: '100%',
-            }}
-            size='middle'
-        />
-    );
+  const decrease = () => {
+    setCount(count > 1 ? --count : count);
+  };
+
+  return (
+    <div className="w-full h-full flex justify-between items-center border border-gray-300 rounded-lg">
+      <button
+        onClick={() => decrease()}
+        className={`p-3 hover:text-gray-400 ${
+          count <= 1 ? "text-gray-400" : ""
+        }`}
+      >
+        <i className="fa-solid fa-minus"></i>
+      </button>
+
+      <div> {count} </div>
+
+      <button onClick={() => increase()} className="p-3 hover:text-gray-400">
+        <i className="fa-solid fa-plus"></i>
+      </button>
+    </div>
+  );
 };
 
 export default NumberSpinner;

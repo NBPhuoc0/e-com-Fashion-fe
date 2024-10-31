@@ -1,4 +1,5 @@
 "use client";
+import PromotionDrawer from "@/components/promotion/PromotionDrawer";
 import { DeliveryMethod, PaymentMethod } from "@/utils/enum";
 import { Radio, RadioChangeEvent } from "antd";
 import { useState } from "react";
@@ -7,6 +8,7 @@ export default function Checkout() {
   const [deliveryMethod, setDeliveryMethod] = useState(DeliveryMethod.AT_HOME);
   const [paymentMethodSelected, setPaymentMethod] = useState(PaymentMethod.COD);
   const [isVisiblePaymentSelector, setVisiblePaymentSelector] = useState(false);
+  const [isVisiblePromotion, setIsVisiblePromotion] = useState(false);
 
   const price: number = 168000;
   const paymentMethod = [
@@ -21,6 +23,10 @@ export default function Checkout() {
       title: "Thanh toán quan VNPay",
     },
   ];
+
+  const closePromotionDrawer = () => {
+    setIsVisiblePromotion(false);
+  };
 
   const onChange = (e: RadioChangeEvent) => {
     setDeliveryMethod(e.target.value);
@@ -199,8 +205,11 @@ export default function Checkout() {
             </section>
           </div>
 
-          <div className="lg:w-96 w-full bg-white rounded-xl p-4 h-fit">
-            <div className="flex justify-between items-center bg-[#f3f4f6] p-3 rounded-lg cursor-pointer">
+          <div className="lg:w-96 w-full bg-white rounded-xl p-4 h-fit sticky top-20">
+            <button
+              onClick={() => setIsVisiblePromotion(!isVisiblePromotion)}
+              className="w-full flex justify-between items-center bg-[#f3f4f6] p-3 rounded-lg cursor-pointer"
+            >
               <div className="flex items-center gap-4">
                 <i className="fa-solid fa-ticket text-[#dc2626]"></i>
                 <div className="text-sm line-clamp-1">
@@ -208,7 +217,7 @@ export default function Checkout() {
                 </div>
               </div>
               <i className="fa-solid fa-angle-right text-gray-400"></i>
-            </div>
+            </button>
 
             <h3 className="font-semibold text-base !line-clamp-1 my-5">
               Thông tin đơn hàng
@@ -261,6 +270,11 @@ export default function Checkout() {
           </div>
         </div>
       </div>
+
+      <PromotionDrawer
+        isVisible={isVisiblePromotion}
+        onClose={closePromotionDrawer}
+      />
     </section>
   );
 }

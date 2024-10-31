@@ -1,4 +1,7 @@
-import { jacketProductsHome, jeansProductsHome } from "@/dummy-data/product.data";
+import {
+  jacketProductsHome,
+  jeansProductsHome,
+} from "@/dummy-data/product.data";
 import ListProduct from "./ListProduct";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -44,12 +47,14 @@ export default function ProductRecommended() {
     <section className="mb-5">
       <div className="category-selector mb-5 flex justify-center">
         <div className="flex items-center gap-4">
-          <h2 className="font-medium text-3xl">Gợi ý sản phẩm</h2>
+          <h2 className="font-normal lg:text-3xl md:text-xl sm:text-lg text-md">
+            Gợi ý sản phẩm
+          </h2>
           <div
             onClick={() => {
               setIsSelectorVisible(!isSelectorVisible);
             }}
-            className="relative cursor-pointer p-3 w-48 border border-gray-300 rounded-xl inline-flex"
+            className="relative cursor-pointer lg:p-3 p-2 px-5 sm:w-48 w-auto border border-gray-300 rounded-xl inline-flex"
           >
             {categorys !== null && (
               <span className="text-center m-auto select-none">
@@ -68,7 +73,7 @@ export default function ProductRecommended() {
                     <div
                       onClick={() => setCateSelected(item.id)}
                       key={item.id}
-                      className={`p-3 cursor-pointer select-none ${
+                      className={`lg:p-3 p-1 cursor-pointer select-none ${
                         cateIDSelected === item.id
                           ? "bg-blue-100"
                           : "hover:bg-gray-200"
@@ -95,7 +100,7 @@ export default function ProductRecommended() {
         className="flex justify-center"
       >
         <div
-          className={`text-center text-black hover:text-gray-500 font-medium rounded-lg p-2 min-w-96 w-96 border border-gray-600 hover:border-gray-500 mt-5 text-centers ${
+          className={`w-full max-w-96 text-center text-black hover:text-gray-500 font-medium rounded-lg p-2 border border-gray-600 hover:border-gray-500 mt-5 text-centers ${
             (
               categorys.find((item) => item.id === cateIDSelected)
                 ?.listProduct ?? []
