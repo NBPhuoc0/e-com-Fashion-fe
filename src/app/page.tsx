@@ -81,7 +81,7 @@ export default function Home() {
     <main>
       <div className="sectionContainer">
         <BannerSlider banners={banners} />
-        <div className="mt-6 tabsHome">
+        <div className="lg:mt-6 sm:mt-3 mt-1 tabsHome">
           <h2 className="text-2xl md:text-3xl text-center py-2">
             Sản phẩm ưa chuộng
           </h2>
@@ -100,7 +100,7 @@ export default function Home() {
                       {category.listProduct.length > 0 && (
                         <Link
                           href={"/collection/" + category.id}
-                          className="text-black hover:text-gray-500 font-medium rounded-lg p-2 w-96 border border-gray-600 hover:border-gray-500 mt-5 text-center"
+                          className="sectionContainer !max-w-96 text-black hover:text-gray-500 font-medium rounded-lg p-2 w-full border border-gray-600 hover:border-gray-500 mt-5 text-center"
                         >
                           {" "}
                           Xem thêm{" "}
@@ -128,7 +128,7 @@ export default function Home() {
         <Row gutter={16}>
           {banner_collections.map((img, index) => {
             return (
-              <Col span={12} key={index}>
+              <Col span={24} md={12} key={index}>
                 <div className="w-full mb-4">
                   <img
                     loading="lazy"
@@ -143,7 +143,7 @@ export default function Home() {
         </Row>
       </div>
 
-      <div className="w-full bg-black text-white font-bold text-4xl text-center p-5">
+      <div className="w-full bg-black text-white font-bold lg:text-4xl md:text-2xl sm:text-xl text-lg text-center p-5">
         <span>#FStore tự hào thương hiệu Việt</span>
       </div>
 

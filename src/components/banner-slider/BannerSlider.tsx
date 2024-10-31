@@ -8,6 +8,7 @@ export default function BannerSlider({ banners }: { banners: string[] }) {
       autoplay={true}
       autoplaySpeed={5000}
       speed={1000}
+      className="banner__slider"
     >
       {banners.map((item, index) => {
         return (
