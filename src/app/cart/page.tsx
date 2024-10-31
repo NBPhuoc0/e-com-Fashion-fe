@@ -14,7 +14,7 @@ export default function Cart() {
           <div className="col-span-14 col-start-2">
             <div className="flex flex-col gap-1">
               {jacketProductsHome.map((item) => (
-                <CartItem product={item} />
+                <CartItem key={item.id} product={item} />
               ))}
             </div>
           </div>
