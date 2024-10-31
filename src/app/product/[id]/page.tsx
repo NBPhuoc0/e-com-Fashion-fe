@@ -20,7 +20,8 @@ import RecentProduct from "@/components/product/RecentProducts";
 import ProductColor from "@/components/product/ProductColor";
 import ProductSize from "@/components/product/ProductSize";
 import PaymentMethod from "@/components/cart/PaymentMethod";
-import { Col, Row } from "antd";
+import ProductReview from "@/components/product/ProductReview";
+
 export default function ProductDetails({ params }: { params: { id: string } }) {
   const breadcrumbItems = [
     { title: "Trang chủ", link: "/" },
@@ -35,19 +36,20 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
   const [countProduct, setCountProduct] = useState<number>(1);
 
   return (
-    <div>
+    <div className="">
       <div className="sectionContainer">
         <BreadcrumbC items={breadcrumbItems} />
-        <div className="grid md:grid-cols-24 grid-cols-12 lg:gap-10 gap-5 md:overflow-auto overflow-hidden">
+        <div className="grid md:grid-cols-24 grid-cols-12 lg:gap-10 gap-5 ">
           <div className="lg:col-span-1 lg:block hidden"></div>
+
           <div className="lg:col-span-11 md:col-span-12 col-span-12">
             <div className="sticky top-[80px]">
               <ProductSlider product={product} />
             </div>
           </div>
+
           <div className="lg:col-span-11 md:col-span-12 col-span-12">
             {/* info product */}
-
             <div className="py-2">
               <h2 className="text-2xl font-medium">{product.name}</h2>
 
@@ -73,7 +75,10 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
             </div>
 
             <div className="font-semibold text-[#1c2430] text-2xl">
-              {product.min_variant_price.toLocaleString()} đ
+              {product.min_variant_price.toLocaleString("vi-VN", {
+                style: "currency",
+                currency: "VND",
+              })}
             </div>
 
             {/* info discount */}
@@ -201,10 +206,20 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
               </li>
             </ul>
           </div>
+
           <div className="lg:col-span-1 lg:block hidden"></div>
         </div>
-        <div className="py-6 lg:py-10">
-          <RecentProduct listProduct={jacketProducts} />
+      </div>
+
+      <div className="bg-gray-100 py-5">
+        <div className="sectionContainer">
+          <div className="bg-white p-5 py-8 rounded-lg mb-5">
+            <ProductReview />
+          </div>
+
+          <div className="bg-white p-5 rounded-lg">
+            <RecentProduct listProduct={jacketProducts} />
+          </div>
         </div>
       </div>
     </div>
