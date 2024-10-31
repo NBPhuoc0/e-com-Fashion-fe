@@ -205,7 +205,7 @@ export default function Checkout() {
             </section>
           </div>
 
-          <div className="lg:w-96 w-full bg-white rounded-xl p-4 h-fit">
+          <div className="lg:w-96 w-full bg-white rounded-xl p-4 h-fit sticky top-20">
             <button
               onClick={() => setIsVisiblePromotion(!isVisiblePromotion)}
               className="w-full flex justify-between items-center bg-[#f3f4f6] p-3 rounded-lg cursor-pointer"

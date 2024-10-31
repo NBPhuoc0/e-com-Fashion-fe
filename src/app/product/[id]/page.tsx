@@ -49,7 +49,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
             {/* info product */}
 
             <div className="py-2">
-              <h2 className="text-2xl font-medium">{product.name}</h2>
+              <h2 className="text-lg xl:text-2xl font-medium">{product.name}</h2>
 
               <div className="py-2 flex items-center gap-1">
                 <div className="mr-2">{params.id}</div>
@@ -58,13 +58,13 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
                   <FontAwesomeIcon icon={faStar} />
                 </div>
 
-                <div className="font-semibold text-sm">4.8</div>
+                <div className="font-semibold text-xs xl:text-sm">4.8</div>
 
-                <div className="text-gray-400 text-sm">(120)</div>
+                <div className="text-gray-400 text-xs xl:text-sm">(120)</div>
 
                 <div className="border-l-2 h-4"></div>
 
-                <div className="flex gap-1 text-sm">
+                <div className="flex gap-1 text-xs xl:text-sm">
                   <div className="font-thin">Đã bán</div>
 
                   <div className="font-semibold">3328</div>
@@ -72,13 +72,13 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
               </div>
             </div>
 
-            <div className="font-semibold text-[#1c2430] text-2xl">
+            <div className="font-semibold text-[#1c2430] text-lg xl:text-2xl">
               {product.min_variant_price.toLocaleString()} đ
             </div>
 
             {/* info discount */}
             <div className="py-2 flex items-center">
-              <div className="w-1/3 text-sm">Giảm 69K cho đơn hàng từ 499K</div>
+              <div className="w-1/3 text-xs xl:text-sm">Giảm 69K cho đơn hàng từ 499K</div>
 
               <div className="w-2/3 flex items-center">
                 <span className="py-1 px-4 border rounded-md border-gray-300 border-dashed text-xs text-red-600 my-0.5 mx-1.5 bg-zinc-100">
