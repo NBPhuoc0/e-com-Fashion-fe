@@ -3,12 +3,12 @@ import {
   jeansProductsHome,
 } from "@/dummy-data/product.data";
 import ListProduct from "./ListProduct";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { ProductCategory } from "@/models/product/productCategory.model";
 
 export default function ProductRecommended() {
-  const [cateIDSelected, setCateSelected] = useState(0);
+  const [cateIDSelected, setCateSelected] = useState(1);
   const [isSelectorVisible, setIsSelectorVisible] = useState(false);
 
   const categorys: ProductCategory[] = [
@@ -38,10 +38,6 @@ export default function ProductRecommended() {
       listProduct: [],
     },
   ];
-
-  useEffect(() => {
-    setCateSelected(categorys[0].id);
-  }, []);
 
   return (
     <section className="mb-5">

@@ -1,12 +1,12 @@
+"use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import emptyAdress from "../../../public/assets/images/empty_address_book.png";
 import { PlusOutlined } from "@ant-design/icons";
 import { Button } from "antd";
-import AddressItem from "./AddressItem";
-import AddAddress from "./AddAddress";
+import AddAddress from "@/components/account/AddAddress";
+import AddressItem from "@/components/account/AddressItem";
 
-export default function Adress() {
+export default function AddressManagement() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [editingAddress, setEditingAddress] = useState(null);
@@ -71,7 +71,11 @@ export default function Adress() {
       </div>
       {listAddress.length === 0 ? (
         <div className="flex justify-center">
-          <Image className="overflow-hidden" src={emptyAdress} alt="image" />
+          <Image
+            className="overflow-hidden"
+            src="/assets/images/empty_address_book.png"
+            alt="image"
+          />
         </div>
       ) : (
         listAddress.map((item, index) => (

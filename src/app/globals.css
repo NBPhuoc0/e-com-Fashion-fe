@@ -29,6 +29,10 @@
   @apply lg:px-10 sm:px-5 px-3;
 }
 
+.scrollbar-none {
+  scrollbar-width: none !important;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   font-style: normal;

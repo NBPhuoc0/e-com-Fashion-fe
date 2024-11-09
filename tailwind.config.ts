@@ -9,23 +9,32 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        "slide-in-top": "slide-in-top 1s linear infinite alternate-reverse",
+      },
+      keyframes: {
+        "slide-in-top": {
+          "0%": { transform: "translateY(-10px)" },
+          "100%": { transform: "translateY(10px)" },
+        },
+      },
       screens: {
         "xl-1320": "1320px",
       },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#fcaf17",
       },
       gridTemplateColumns: {
-        '24': 'repeat(24, minmax(0, 1fr))',
+        "24": "repeat(24, minmax(0, 1fr))",
       },
       gridColumn: {
-        'span-14': 'span 14 / span 14',
-        'span-20': 'span 20 / span 20',
-        'span-22': 'span 22 / span 22',
-        'span-24': 'span 24 / span 24',
+        "span-14": "span 14 / span 14",
+        "span-20": "span 20 / span 20",
+        "span-22": "span 22 / span 22",
+        "span-24": "span 24 / span 24",
       },
-
     },
   },
   plugins: [flowbite.plugin()],
