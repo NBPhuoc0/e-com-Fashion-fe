@@ -1,3 +1,7 @@
-.banner__slider .slick-dots .slick-dots-bottom::after {
-  display: none !important;
+.home-banner-slider-dots.slick-dots {
+  bottom: 2% !important;
+}
+
+.home-banner-slider-dots.slick-dots li {
+  @apply md:!w-5 !w-1;
 }
