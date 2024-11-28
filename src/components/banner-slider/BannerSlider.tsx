@@ -29,8 +29,10 @@ function SamplePrevArrow(props: any) {
 export default function BannerSlider({ banners }: { banners: string[] }) {
   const settings: Settings = {
     dots: true,
-    infinite: false,
-    speed: 500,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    speed: 1300,
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
@@ -46,7 +48,7 @@ export default function BannerSlider({ banners }: { banners: string[] }) {
             src={item}
             alt="Banner picture"
             loading="lazy"
-            className="object-cover"
+            className="object-cover w-full"
           />
         </div>
       ))}

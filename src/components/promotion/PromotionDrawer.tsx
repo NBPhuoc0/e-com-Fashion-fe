@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import PromotionCard from "./PromotionCard";
 import "./PromotionDrawer.css";

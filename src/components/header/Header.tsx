@@ -10,7 +10,7 @@ export default function Header() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
   return (
-    <header className="w-full md:mb-5 mb-2 sticky top-0 left-0 right-0 border-b border-gray-100 bg-white z-30">
+    <header className="w-full sticky top-0 left-0 right-0 border-b border-gray-100 bg-white z-30">
       <nav className="sectionContainer header__nav flex justify-between items-center py-3">
         <div className="header__nav--item left flex items-center gap-10">
           <div className="flex items-center gap-5">

@@ -30,3 +30,10 @@ export enum OrderStatus {
   CANCELLED = "cancelled",
   RETURN = "return",
 }
+
+export enum AddressLevel {
+  Province = "province",
+  District = "district",
+  Ward = "ward",
+  Details = "details",
+}

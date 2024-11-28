@@ -1,4 +1,5 @@
 "use client";
+import AddressDrawer from "@/components/address/AddressDrawer";
 import PromotionDrawer from "@/components/promotion/PromotionDrawer";
 import { DeliveryMethod, PaymentMethod } from "@/utils/enum";
 import { Radio, RadioChangeEvent } from "antd";
@@ -7,8 +8,11 @@ import { useState } from "react";
 export default function Checkout() {
   const [deliveryMethod, setDeliveryMethod] = useState(DeliveryMethod.AT_HOME);
   const [paymentMethodSelected, setPaymentMethod] = useState(PaymentMethod.COD);
+
   const [isVisiblePaymentSelector, setVisiblePaymentSelector] = useState(false);
-  const [isVisiblePromotion, setIsVisiblePromotion] = useState(false);
+  const [isVisiblePromotion, setVisiblePromotion] = useState(false);
+
+  const [isVisibleAddressDrawer, setVisibleAddressDrawer] = useState(false);
 
   const price: number = 168000;
   const paymentMethod = [
@@ -25,7 +29,11 @@ export default function Checkout() {
   ];
 
   const closePromotionDrawer = () => {
-    setIsVisiblePromotion(false);
+    setVisiblePromotion(false);
+  };
+
+  const closeAddressDrawer = () => {
+    setVisibleAddressDrawer(false);
   };
 
   const onChange = (e: RadioChangeEvent) => {
@@ -33,7 +41,7 @@ export default function Checkout() {
   };
 
   return (
-    <section className="bg-[#f3f4f6] -mt-5 py-5">
+    <section className="bg-[#f3f4f6] py-5">
       <div className="sectionContainer">
         <div className="flex flex-col lg:flex-row w-full gap-4">
           <div className="flex-1 flex flex-col gap-4">
@@ -113,7 +121,7 @@ export default function Checkout() {
                   <span className="block text-sm">0987654321</span>
                 </div>
 
-                <button className="text-blue-700 min-w-16">Thay đổi</button>
+                {/* <button className="text-blue-700 min-w-16">Thay đổi</button> */}
               </div>
             </section>
 
@@ -140,7 +148,12 @@ export default function Checkout() {
                     </span>
                   </div>
 
-                  <button className="text-blue-700 h-fit min-w-16">
+                  <button
+                    onClick={() =>
+                      setVisibleAddressDrawer(!isVisibleAddressDrawer)
+                    }
+                    className="text-blue-700 h-fit min-w-16"
+                  >
                     Thay đổi
                   </button>
                 </div>
@@ -207,7 +220,7 @@ export default function Checkout() {
 
           <div className="lg:w-96 w-full bg-white rounded-xl p-4 h-fit sticky top-20">
             <button
-              onClick={() => setIsVisiblePromotion(!isVisiblePromotion)}
+              onClick={() => setVisiblePromotion(!isVisiblePromotion)}
               className="w-full flex justify-between items-center bg-[#f3f4f6] p-3 rounded-lg cursor-pointer"
             >
               <div className="flex items-center gap-4">
@@ -274,6 +287,11 @@ export default function Checkout() {
       <PromotionDrawer
         isVisible={isVisiblePromotion}
         onClose={closePromotionDrawer}
+      />
+
+      <AddressDrawer
+        isVisible={isVisibleAddressDrawer}
+        onClose={closeAddressDrawer}
       />
     </section>
   );

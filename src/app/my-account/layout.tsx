@@ -10,7 +10,7 @@ export default function MyAccountLayout({
   const pathname = usePathname();
 
   return (
-    <div className="bg-gray-100 md:-mt-5 -mt-2">
+    <div className="bg-gray-100">
       <div className="sectionContainer py-10">
         <div className="flex lg:flex-row flex-col gap-5">
           <div className="flex flex-col lg:min-w-72 lg:w-72 h-fit w-full bg-white rounded-lg py-2 overflow-hidden">

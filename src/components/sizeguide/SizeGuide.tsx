@@ -2,13 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 import { Button, Modal, Tabs } from "antd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRuler } from "@fortawesome/free-solid-svg-icons";
 import "./SizeGuide.css";
-import sizeGuide_nam from "../../public/assets/images/nam_m0g3c0nprobhtwlagl.png";
-import sizeGuide_nu from "../../public/assets/images/nudesktop_m0g7qymbf85vldo7av9.png";
-import sizeGuide_treem from "../../public/assets/images/treem_m0g2rdob3827pgguj68.png";
-import sizeGuide_phukien from "../../public/assets/images/phukien_m0g2tknquvm0uavodt.png";
+import sizeGuide_nam from "../../../public/assets/images/nam_m0g3c0nprobhtwlagl.png";
+import sizeGuide_nu from "../../../public/assets/images/nudesktop_m0g7qymbf85vldo7av9.png";
+import sizeGuide_treem from "../../../public/assets/images/treem_m0g2rdob3827pgguj68.png";
+import sizeGuide_phukien from "../../../public/assets/images/phukien_m0g2tknquvm0uavodt.png";
 import Image from "next/image";
 const SizeGuide: React.FC = () => {
   const [open, setOpen] = React.useState<boolean>(false);

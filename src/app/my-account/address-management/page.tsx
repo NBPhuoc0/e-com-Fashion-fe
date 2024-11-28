@@ -3,8 +3,8 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { Button } from "antd";
-import AddAddress from "@/components/account/AddAddress";
-import AddressItem from "@/components/account/AddressItem";
+import AddAddress from "@/components/address/AddAddress";
+import AddressCard from "@/components/address/AddressCard";
 
 export default function AddressManagement() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,6 +26,7 @@ export default function AddressManagement() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
   const listAddress = [
     {
       name: "Văn Bá Trung Thành",
@@ -48,6 +49,7 @@ export default function AddressManagement() {
       defaultAddress: false,
     },
   ];
+
   return (
     <div>
       <div className="flex justify-between">
@@ -80,7 +82,7 @@ export default function AddressManagement() {
       ) : (
         listAddress.map((item, index) => (
           <div className="my-1" key={index}>
-            <AddressItem
+            <AddressCard
               onOpen={() => openUpdateModal(item)}
               infoAddress={item}
             />
