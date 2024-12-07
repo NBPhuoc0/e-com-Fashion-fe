@@ -24,21 +24,37 @@ export default function ListFilter({ listFilters, onListFilter }: {
         )
     }));
     return (
-        <div className='flex items-center space-x-3'>
-            {listFilters.length > 0 && <>
-                <p className='text-sm'>Đang dùng bộ lọc: </p>
-                {listFilters.length < 4 ? (
-                    listFilters.map((item) => (
-                        <div className='flex items-center space-x-2 px-5 py-1.5 bg-gray-100 rounded-lg text-xs'>
-                            <span>{item.name}</span>
-                            <span style={{ cursor: 'pointer' }} onClick={() => handleChange(item.id)}><FontAwesomeIcon icon={faXmark} /></span>
-                        </div>
-                    ))) : (
-                    <SelectC value={`${listFilters.length} bộ lọc`} textDefault='' options={options} width={220} handleChange={handleChange} />
-                )}
-                <Button onClick={() => onListFilter([])}>Xóa hết bộ lọc</Button>
-            </>
-            }
-        </div>
-    )
+      <div className="flex items-center space-x-3">
+        {listFilters.length > 0 && (
+          <>
+            <p className="text-sm">Đang dùng bộ lọc: </p>
+            {listFilters.length < 4 ? (
+              listFilters.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex items-center space-x-2 px-5 py-1.5 bg-gray-100 rounded-lg text-xs"
+                >
+                  <span>{item.name}</span>
+                  <span
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleChange(item.id)}
+                  >
+                    <FontAwesomeIcon icon={faXmark} />
+                  </span>
+                </div>
+              ))
+            ) : (
+              <SelectC
+                value={`${listFilters.length} bộ lọc`}
+                textDefault=""
+                options={options}
+                width={220}
+                handleChange={handleChange}
+              />
+            )}
+            <Button onClick={() => onListFilter([])}>Xóa hết bộ lọc</Button>
+          </>
+        )}
+      </div>
+    );
 }
